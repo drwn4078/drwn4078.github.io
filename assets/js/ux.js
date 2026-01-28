@@ -659,6 +659,9 @@ window[namespace] = window[namespace] || {};
 					settings.standby = true;
 				}
 			}, 10);
+			$ux.off('click').on('click', function () {
+				$ux.addClass('standby');
+			});
 			$inputs.off('focusin').on('focusin', function () {
 				$ux.addClass('standby');
 			});
