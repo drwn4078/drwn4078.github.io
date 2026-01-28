@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="icon" href="/assets/images/favicon.png">
+	<title></title>
+	<link rel="stylesheet" href="/assets/lib/jquery/jquery-ui-1.12.1.min.css">
+	<link rel="stylesheet" href="/assets/lib/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="/assets/lib/toast/toast.min.css">
+	<link rel="stylesheet" href="/assets/css/ux.css">
+	<link rel="stylesheet" href="/assets/css/guide.css">
+	<style type="text/css">
+		.example {
+			display: flex;justify-content: center;align-items: center;height: 120px;
+			font-size: 18px;font-weight: 600;color: rgba(0, 0, 0, .4);border-radius: 16px;background-color: rgba(0, 0, 0, .08);
+		}
+	</style>
+	<script type="text/javascript" src="/assets/lib/jquery/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="/assets/lib/jquery/jquery-ui-1.12.1.min.js"></script>
+	<script type="text/javascript" src="/assets/lib/swiper/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="/assets/lib/toast/toast.min.js"></script>
+	<script type="text/javascript" src="/assets/js/ux.js"></script>
+	<script type="text/javascript" src="/assets/js/guide.js"></script>
+	<script type="text/javascript">
+		const handleTabChange = (event) => {
+			console.log("handleTabChange", event.target)
+		};
+	</script>
+</head>
+
+<body>
+	<div class="ux-container">
+		<header class="ux-header">
+			<section class="ux-section section-type-content">
+				<article class="ux-article">
+					<div class="ux-content">
+						<div class="bar left">
+							<button type="button" class="ux-button button-back">
+								<span class="icon"></span>
+								<span class="text">뒤로</span>
+							</button>
+						</div>
+						<div class="bar center">
+							<h2>Tab</h2>
+						</div>
+						<div class="bar right">
+							<button type="button" class="ux-button button-home">
+								<span class="icon"></span>
+								<span class="text">홈</span>
+							</button>
+							<button type="button" class="ux-button button-menu">
+								<span class="icon"></span>
+								<span class="text">메뉴</span>
+							</button>
+						</div>
+					</div>
+				</article>
+			</section>
+		</header>
+		<main class="ux-main">
+			<section class="ux-section section-type-guide">
+				<div class="code-viewer">
+					<input id="viewer_state" type="checkbox" class="viewer-state">
+					<div class="code-viewer-summary">
+						<label for="viewer_state">
+							<span class="text">Markup</span>
+							<span class="icon mask"></span>
+						</label>
+					</div>
+					<div class="code-viewer-details">
+<pre>
+<code class="language-markup">
+<div class="ux-tab">
+	<div class="tab-summary">
+		<div class="tab-subjects">
+			<label class="tab-subject">
+				<span class="icon"></span>
+				<span class="text">Tab #1</span>
+			</label>
+			<label class="tab-subject">
+				<span class="icon"></span>
+				<span class="text">Tab #2</span>
+			</label>
+		</div>
+	</div>
+	<div class="tab-details">
+		<div class="tab-contents">
+			<div class="tab-content">Tab #1 content</div>
+			<div class="tab-content">Tab #2 content</div>
+		</div>
+	</div>
+</div>
+</code>
+</pre>
+					</div>
+				</div>
+			</section>
+			<section class="ux-section section-type-content">
+				<article class="ux-article">
+					<div class="ux-content">
+						<div class="h4">
+							<div class="ux-tab" onchange="handleTabChange(event);">
+								<div class="tab-summary">
+									<div class="tab-subjects">
+										<label class="tab-subject">
+											<span class="icon"></span>
+											<span class="text">Tab #1</span>
+										</label>
+										<label class="tab-subject">
+											<span class="icon"></span>
+											<span class="text">Tab #2</span>
+										</label>
+										<label class="tab-subject">
+											<span class="icon"></span>
+											<span class="text">Tab #3</span>
+										</label>
+									</div>
+								</div>
+								<div class="tab-details">
+									<div class="tab-contents">
+										<div class="tab-content">
+											<div class="example">
+												Tab #1 content
+											</div>
+										</div>
+										<div class="tab-content">
+											<div class="example">
+												Tab #2 content
+											</div>
+										</div>
+										<div class="tab-content">
+											<div class="example">
+												Tab #3 content
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ux-content">
+						<div class="h4">
+							<div class="ux-tab">
+								<div class="tab-summary">
+									<div class="tab-subjects">
+										<label class="tab-subject">
+											<span class="icon"></span>
+											<span class="text">Tab #1</span>
+										</label>
+										<label class="tab-subject selected">
+											<span class="icon"></span>
+											<span class="text">Tab #2</span>
+										</label>
+										<label class="tab-subject">
+											<span class="icon"></span>
+											<span class="text">Tab #3</span>
+										</label>
+									</div>
+								</div>
+								<div class="tab-details">
+									<div class="tab-contents">
+										<div class="tab-content">
+											<div class="example">
+												Tab #1 content
+											</div>
+										</div>
+										<div class="tab-content">
+											<div class="example">
+												Tab #2 content
+											</div>
+										</div>
+										<div class="tab-content">
+											<div class="example">
+												Tab #3 content
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ux-content">
+						<div class="h4">
+							<div class="ux-tab box">
+								<div class="tab-summary">
+									<div class="tab-subjects">
+										<label class="tab-subject">
+											<span class="icon"></span>
+											<span class="text">Tab #1</span>
+										</label>
+										<label class="tab-subject selected">
+											<span class="icon"></span>
+											<span class="text">Tab #2</span>
+										</label>
+										<label class="tab-subject">
+											<span class="icon"></span>
+											<span class="text">Tab #3</span>
+										</label>
+									</div>
+								</div>
+								<div class="tab-details">
+									<div class="tab-contents">
+										<div class="tab-content">
+											<div class="example">
+												Tab #1 content
+											</div>
+										</div>
+										<div class="tab-content">
+											<div class="example">
+												Tab #2 content
+											</div>
+										</div>
+										<div class="tab-content">
+											<div class="example">
+												Tab #3 content
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</main>
+	</div>
+</body>
+
+</html>

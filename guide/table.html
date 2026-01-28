@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="icon" href="/assets/images/favicon.png">
+	<title></title>
+	<link rel="stylesheet" href="/assets/lib/jquery/jquery-ui-1.12.1.min.css">
+	<link rel="stylesheet" href="/assets/lib/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="/assets/lib/toast/toast.min.css">
+	<link rel="stylesheet" href="/assets/css/ux.css">
+	<link rel="stylesheet" href="/assets/css/guide.css">
+	<script type="text/javascript" src="/assets/lib/jquery/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="/assets/lib/jquery/jquery-ui-1.12.1.min.js"></script>
+	<script type="text/javascript" src="/assets/lib/swiper/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="/assets/lib/toast/toast.min.js"></script>
+	<script type="text/javascript" src="/assets/js/ux.js"></script>
+	<script type="text/javascript" src="/assets/js/guide.js"></script>
+</head>
+
+<body>
+	<div class="ux-container">
+		<header class="ux-header">
+			<section class="ux-section section-type-content">
+				<article class="ux-article">
+					<div class="ux-content">
+						<div class="bar left">
+							<button type="button" class="ux-button button-back">
+								<span class="icon"></span>
+								<span class="text">뒤로</span>
+							</button>
+						</div>
+						<div class="bar center">
+							<h2>Table</h2>
+						</div>
+						<div class="bar right">
+							<button type="button" class="ux-button button-home">
+								<span class="icon"></span>
+								<span class="text">홈</span>
+							</button>
+							<button type="button" class="ux-button button-menu">
+								<span class="icon"></span>
+								<span class="text">메뉴</span>
+							</button>
+						</div>
+					</div>
+				</article>
+			</section>
+		</header>
+		<main class="ux-main">
+			<section class="ux-section section-type-guide">
+				<div class="code-viewer">
+					<input id="viewer_state" type="checkbox" class="viewer-state">
+					<div class="code-viewer-summary">
+						<label for="viewer_state">
+							<span class="text">Markup</span>
+							<span class="icon mask"></span>
+						</label>
+					</div>
+					<div class="code-viewer-details">
+						<pre>
+<code class="language-markup">
+<div class="ux-table">
+	<table>
+		<caption>캡션</caption>
+		<colgroup>
+			<col>
+			<col>
+		</colgroup>
+		<thead>
+			<tr>
+				<th scope="col"></th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</code>
+</pre>
+					</div>
+				</div>
+			</section>
+			<section class="ux-section section-type-content">
+				<article class="ux-article">
+					<div class="ux-content">
+						<div class="h4">
+							<div class="subject">
+								<h4>기본형</h4>
+							</div>
+							<div class="content">
+								<div class="ux-table">
+									<table class="text-align-center">
+										<caption>캡션</caption>
+										<colgroup>
+											<col>
+											<col>
+											<col>
+											<col>
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">대출금액</th>
+												<th scope="col">인지세액</th>
+												<th scope="col">고객부담</th>
+												<th scope="col">은행부담</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>5천만원 이하</td>
+												<td>비과세</td>
+												<td>-</td>
+												<td>-</td>
+											</tr>
+											<tr>
+												<td rowspan="2">rowSpan</td>
+												<td>data</td>
+												<td>data</td>
+												<td>data</td>
+											</tr>
+											<tr>
+												<td>data</td>
+												<td>data</td>
+												<td>data</td>
+											</tr>
+											<tr>
+												<td>5천만원 초과 ~ 1억원이하</td>
+												<td>7만원</td>
+												<td>3만5천원</td>
+												<td>3만5천원</td>
+											</tr>
+											<tr>
+												<td>1억원 초과~10억원이하</td>
+												<td>15만원</td>
+												<td>7만5천원</td>
+												<td>7만5천원</td>
+											</tr>
+											<tr>
+												<td>10억원초과</td>
+												<td>35만원</td>
+												<td>17만5천원</td>
+												<td>17만5천원</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="h4">
+							<div class="subject">
+								<h4>tbody only</h4>
+							</div>
+							<div class="content">
+								<div class="ux-table">
+									<table>
+										<caption>채무조정 절차</caption>
+										<colgroup>
+											<col class="th">
+											<col class="td">
+										</colgroup>
+										<tbody>
+											<tr>
+												<th scope="row">① 요청</th>
+												<td>
+													<strong>(채무자)</strong>
+													<br>
+													채권금융회사에 채무조정을 요청합니다.
+													<br>
+													(구비서류 제출)
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">② 심사 및 결과통지</th>
+												<td>
+													<strong>(채권금융회사)</strong>
+													<br>
+													채무조정 심사 후 결과를 통지합니다
+													<br>
+													(10영업일 이내)
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">③ 동의</th>
+												<td>
+													<strong>(채무자)</strong>
+													<br>
+													채권금융회사가 통지한 채무조정 내용에 대해 동의 여부를 결정합니다.
+													<br>
+													(10영업일 이내)
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">④ 채무조정서 작성</th>
+												<td>
+													<strong>(채권금융회사)</strong>
+													<br>
+													채무자가 동의한 채무조정 내용에 대해 조정서를 작성합니다.
+												</td>
+											</tr>
+											<tr>
+												<th scope="row">⑤ 합의</th>
+												<td>
+													<strong>(채무자)</strong>
+													<br>
+													조정서에 날인시 채무조정 합의가 성립됩니다.
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="h4">
+							<div class="subject">
+								<h4>table-bar</h4>
+							</div>
+							<div class="content">
+								<div class="ux-table">
+									<div class="table-bar">
+										<span></span>
+										<div class="desc">
+											<p>(기준일 : 2026.01.23)</p>
+										</div>
+									</div>
+									<table class="text-align-center">
+										<caption>캡션</caption>
+										<colgroup>
+											<col>
+											<col>
+											<col>
+											<col>
+											<col>
+											<col>
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">대출금액</th>
+												<th scope="col">인지세액</th>
+												<th scope="col">고객부담</th>
+												<th scope="col">은행부담</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>5천만원 초과 ~ 1억원이하</td>
+												<td>7만원</td>
+												<td>3만5천원</td>
+												<td>3만5천원</td>
+											</tr>
+											<tr>
+												<td>1억원 초과~10억원이하</td>
+												<td>15만원</td>
+												<td>7만5천원</td>
+												<td>7만5천원</td>
+											</tr>
+											<tr>
+												<td>10억원초과</td>
+												<td>35만원</td>
+												<td>17만5천원</td>
+												<td>17만5천원</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="table-bar">
+										<div class="desc">
+											<p class="bl-billiard">도움말 표시</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="h4">
+							<div class="subject">
+								<h4>scroll</h4>
+							</div>
+							<div class="content">
+								<div class="ux-table scroll">
+									<table class="text-align-center">
+										<caption>캡션</caption>
+										<colgroup>
+											<col width="200px">
+											<col width="100px">
+											<col width="100px">
+											<col width="100px">
+											<col width="100px">
+											<col width="100px">
+											<col width="100px">
+											<col width="100px">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">대출금액</th>
+												<th scope="col">인지세액</th>
+												<th scope="col">고객부담</th>
+												<th scope="col">은행부담</th>
+												<th scope="col">고객부담</th>
+												<th scope="col">은행부담</th>
+												<th scope="col">고객부담</th>
+												<th scope="col">은행부담</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>5천만원 초과 ~ 1억원이하</td>
+												<td>7만원</td>
+												<td>3만5천원</td>
+												<td>3만5천원</td>
+												<td>3만5천원</td>
+												<td>3만5천원</td>
+												<td>3만5천원</td>
+												<td>3만5천원</td>
+											</tr>
+											<tr>
+												<td>1억원 초과~10억원이하</td>
+												<td>15만원</td>
+												<td>7만5천원</td>
+												<td>7만5천원</td>
+												<td>7만5천원</td>
+												<td>7만5천원</td>
+												<td>7만5천원</td>
+												<td>7만5천원</td>
+											</tr>
+											<tr>
+												<td>10억원초과</td>
+												<td>35만원</td>
+												<td>17만5천원</td>
+												<td>17만5천원</td>
+												<td>17만5천원</td>
+												<td>17만5천원</td>
+												<td>17만5천원</td>
+												<td>17만5천원</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</main>
+	</div>
+</body>
+
+</html>

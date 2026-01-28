@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="icon" href="/assets/images/favicon.png">
+	<title></title>
+	<link rel="stylesheet" href="/assets/lib/jquery/jquery-ui-1.12.1.min.css">
+	<link rel="stylesheet" href="/assets/lib/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="/assets/lib/toast/toast.min.css">
+	<link rel="stylesheet" href="/assets/css/ux.css">
+	<link rel="stylesheet" href="/assets/css/guide.css">
+	<script type="text/javascript" src="/assets/lib/jquery/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="/assets/lib/jquery/jquery-ui-1.12.1.min.js"></script>
+	<script type="text/javascript" src="/assets/lib/swiper/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="/assets/lib/toast/toast.min.js"></script>
+	<script type="text/javascript" src="/assets/js/ux.js"></script>
+	<script type="text/javascript" src="/assets/js/guide.js"></script>
+	<script type="text/javascript">
+		let $popup;
+
+		const handleAlert = () => {
+			$popup = UX.popup({
+				type: 'alert',
+				src: '알림 메시지를 확인하였습니다.',
+				onOpen: onPopupOpen,
+				onConfirm: onPopupConfirm
+			});
+		};
+
+		const handleAlertCustom = () => {
+			$popup = UX.popup({
+				type: 'alert',
+				src: '커스텀 알림 메시지<br>멀티라인 메시지입니다.',
+				buttonConfirm: '확인하였습니다',
+				onOpen: onPopupOpen,
+				onConfirm: onPopupConfirm
+			});
+		};
+
+		const handleConfirm = () => {
+			$popup = UX.popup({
+				type: 'confirm',
+				src: '컨펌 메시지를 확인하였습니다.',
+				onOpen: onPopupOpen,
+				onDismiss: onPopupDismiss,
+				onConfirm: onPopupConfirm
+			});
+		};
+
+		const handleConfirmCustom = () => {
+			$popup = UX.popup({
+				type: 'confirm',
+				src: '커스텀 컨펌 메시지<br>멀티라인 메시지입니다.',
+				buttonConfirm: '예',
+				buttonDismiss: '아니오',
+				onOpen: onPopupOpen,
+				onDismiss: onPopupDismiss,
+				onConfirm: onPopupConfirm
+			});
+		};
+
+		const handlePopup = () => {
+			$popup = UX.popup({
+				title: '팝업 예제',
+				type: 'bottom',
+				src: '/html/com01p.html',
+				onOpen: onPopupOpen,
+				onClose: onPopupClose,
+				onClick: handleClick
+			});
+			$('.close-popup-test').on('click', function () {
+				$popup && $popup.dialog('close');
+			});
+		};
+		const onPopupOpen = () => {
+			console.log('popup opened');
+		};
+		const onPopupClose = () => {
+			console.log('popup closed');
+		};
+		const onPopupConfirm = () => {
+			console.log('popup confirmed');
+		};
+		const onPopupDismiss = () => {
+			console.log('popup dismissed');
+		};
+
+		const handleClick = (event) => {
+			console.log('handleClick', event.target);
+		};
+</script>
+</head>
+
+<body>
+	<div class="ux-container">
+		<header class="ux-header">
+			<section class="ux-section section-type-content">
+				<article class="ux-article">
+					<div class="ux-content">
+						<div class="bar left">
+							<button type="button" class="ux-button button-back">
+								<span class="icon"></span>
+								<span class="text">뒤로</span>
+							</button>
+						</div>
+						<div class="bar center">
+							<h2>Popup</h2>
+						</div>
+						<div class="bar right">
+							<button type="button" class="ux-button button-home">
+								<span class="icon"></span>
+								<span class="text">홈</span>
+							</button>
+							<button type="button" class="ux-button button-menu">
+								<span class="icon"></span>
+								<span class="text">메뉴</span>
+							</button>
+						</div>
+					</div>
+				</article>
+			</section>
+		</header>
+		<main class="ux-main">
+			<section class="ux-section section-type-content">
+				<article class="ux-article">
+					<div class="ux-content">
+						<div class="h4">
+							<div class="subject">
+								<h4>Alert</h4>
+							</div>
+							<div class="content">
+								<div class="button-bar grid">
+									<button type="button" class="ux-button level-3 outlined" onclick="handleAlert();">
+										<span class="text">alert</span>
+									</button>
+									<button type="button" class="ux-button level-3 outlined" onclick="handleAlertCustom();">
+										<span class="text">alert (custom)</span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="h4">
+							<div class="subject">
+								<h4>Confirm</h4>
+							</div>
+							<div class="content">
+								<div class="button-bar grid">
+									<button type="button" class="ux-button level-3 outlined" onclick="handleConfirm();">
+										<span class="text">confirm</span>
+									</button>
+									<button type="button" class="ux-button level-3 outlined" onclick="handleConfirmCustom();">
+										<span class="text">confirm (custom)</span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="h4">
+							<div class="subject">
+								<h4>Popup</h4>
+							</div>
+							<div class="content">
+								<div class="button-bar grid col-2">
+									<button type="button" class="ux-button level-3 outlined" onclick="handlePopup();">
+										<span class="text">bottom</span>
+									</button>
+									<button type="button" class="ux-button level-3 outlined" onclick="UX.popup({ type: 'bottom', src: '/html/com01p.html' });">
+										<span class="text">bottom (no title)</span>
+									</button>
+									<button type="button" class="ux-button level-3 outlined" onclick="UX.popup({ title: '팝업 예제', type: 'center', src: '/html/com01p.html' });">
+										<span class="text">center</span>
+									</button>
+									<button type="button" class="ux-button level-3 outlined" onclick="UX.popup({ title: '팝업 예제', type: 'full', src: '/html/com01p.html' });">
+										<span class="text">full</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<section class="ux-section section-type-control">
+				<article class="ux-article">
+					<div class="ux-content">
+						<div class="h4">
+							<div class="content">
+								<div class="button-bar proc">
+									<button type="button" class="ux-button level-1 contained dismiss">
+										<span class="text">취소</span>
+									</button>
+									<button type="button" class="ux-button level-1 contained primary">
+										<span class="text">확인</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</main>
+		<footer class="ux-footer">
+			<section class="ux-section">
+				<article class="ux-article"></article>
+			</section>
+		</footer>
+	</div>
+</body>
+
+</html>

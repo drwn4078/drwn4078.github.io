@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/assets/fonts/Pretendard-Regular.subset.woff2") format("woff2"),
+       url("/assets/fonts/Pretendard-Regular.subset.woff") format("woff"),
+       url("/assets/fonts/Pretendard-Regular.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-style: normal;
+  src: url("/assets/fonts/Pretendard-SemiBold.subset.woff2") format("woff2"),
+       url("/assets/fonts/Pretendard-SemiBold.subset.woff") format("woff"),
+       url("/assets/fonts/Pretendard-SemiBold.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/assets/fonts/Pretendard-Bold.subset.woff2") format("woff2"),
+       url("/assets/fonts/Pretendard-Bold.subset.woff") format("woff"),
+       url("/assets/fonts/Pretendard-Bold.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+	font-family: "Password";
+	src: url('/assets/fonts/password.woff2') format('woff2'),
+			 url('/assets/fonts/password.woff') format('woff');
+	font-display: block;
+}

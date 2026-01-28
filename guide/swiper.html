@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="icon" href="/assets/images/favicon.png">
+	<title></title>
+	<link rel="stylesheet" href="/assets/lib/jquery/jquery-ui-1.12.1.min.css">
+	<link rel="stylesheet" href="/assets/lib/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="/assets/lib/toast/toast.min.css">
+	<link rel="stylesheet" href="/assets/css/ux.css">
+	<link rel="stylesheet" href="/assets/css/guide.css">
+	<script type="text/javascript" src="/assets/lib/jquery/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="/assets/lib/jquery/jquery-ui-1.12.1.min.js"></script>
+	<script type="text/javascript" src="/assets/lib/swiper/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="/assets/lib/toast/toast.min.js"></script>
+	<script type="text/javascript" src="/assets/js/ux.js"></script>
+	<script type="text/javascript" src="/assets/js/guide.js"></script>
+	<script type="text/javascript">
+		let swiper = [];
+		const handleSwiper = (el, opt) => {
+			if (el) {
+				if (opt === 'prev') el.slidePrev();
+				if (opt === 'next') el.slideNext();
+			}
+		};
+
+		$(function() {
+			const swiperOptions = {
+				loop: true,
+				slidesPerView: 1,
+				spaceBetween: 20,
+				speed: 400,
+			}
+			swiper[0] = $('.ux-swiper.q1').uxSwiper(swiperOptions);
+			swiper[1] = $('.ux-swiper.q2').uxSwiper(swiperOptions);
+			swiper[2] = $('.ux-swiper.q3').uxSwiper(swiperOptions);
+			swiper[3] = $('.ux-swiper.q4').uxSwiper(swiperOptions);
+		});
+	</script>
+</head>
+
+<body class="bg">
+	<div class="ux-container">
+		<header class="ux-header">
+			<section class="ux-section section-type-content">
+				<article class="ux-article">
+					<div class="ux-content">
+						<div class="bar left">
+							<button type="button" class="ux-button button-back">
+								<span class="icon"></span>
+								<span class="text">뒤로</span>
+							</button>
+						</div>
+						<div class="bar center">
+							<h2>Terms</h2>
+						</div>
+						<div class="bar right">
+							<button type="button" class="ux-button button-home">
+								<span class="icon"></span>
+								<span class="text">홈</span>
+							</button>
+							<button type="button" class="ux-button button-menu">
+								<span class="icon"></span>
+								<span class="text">메뉴</span>
+							</button>
+						</div>
+					</div>
+				</article>
+			</section>
+		</header>
+		<main class="ux-main">
+			<section class="ux-section section-type-guide">
+				<div class="code-viewer">
+					<input id="viewer_state" type="checkbox" class="viewer-state">
+					<div class="code-viewer-summary">
+						<label for="viewer_state">
+							<span class="text">Markup</span>
+							<span class="icon mask"></span>
+						</label>
+					</div>
+					<div class="code-viewer-details">
+<pre>
+<code class="language-markup">
+<div class="ux-swiper">
+	<div class="swiper">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<a href="#"><img src="/assets/images/temp/slide_01.png" alt=""></a>
+			</div>
+			<div class="swiper-slide">
+				<a href="#"><img src="/assets/images/temp/slide_02.png" alt=""></a>
+			</div>
+			<div class="swiper-slide">
+				<a href="#"><img src="/assets/images/temp/slide_03.png" alt=""></a>
+			</div>
+		</div>
+	</div>
+</div>
+</code>
+</pre>
+					</div>
+				</div>
+			</section>
+			<section class="ux-section section-type-content">
+				<article class="ux-article">
+					<div class="ux-content">
+						<div class="h4">
+							<div class="subject">
+								<h4>기본형</h4>
+							</div>
+							<div class="content">
+								<div class="ux-swiper banner-swiper q1">
+									<div class="swiper">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a href="#"><img src="/assets/images/temp/slide_01.png" alt=""></a>
+											</div>
+											<div class="swiper-slide">
+												<a href="#"><img src="/assets/images/temp/slide_02.png" alt=""></a>
+											</div>
+											<div class="swiper-slide">
+												<a href="#"><img src="/assets/images/temp/slide_03.png" alt=""></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="h4">
+							<div class="subject">
+								<h4>pagination</h4>
+							</div>
+							<div class="content">
+								<div class="ux-swiper banner-swiper q2">
+									<div class="swiper">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a href="#"><img src="/assets/images/temp/slide_01.png" alt=""></a>
+											</div>
+											<div class="swiper-slide">
+												<a href="#"><img src="/assets/images/temp/slide_02.png" alt=""></a>
+											</div>
+											<div class="swiper-slide">
+												<a href="#"><img src="/assets/images/temp/slide_03.png" alt=""></a>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-control">
+										<div class="swiper-pagination"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="h4">
+							<div class="subject">
+								<h4>fraction</h4>
+							</div>
+							<div class="content">
+								<div class="ux-swiper banner-swiper q3">
+									<div class="swiper">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a href="#"><img src="/assets/images/temp/slide_01.png" alt=""></a>
+											</div>
+											<div class="swiper-slide">
+												<a href="#"><img src="/assets/images/temp/slide_02.png" alt=""></a>
+											</div>
+											<div class="swiper-slide">
+												<a href="#"><img src="/assets/images/temp/slide_03.png" alt=""></a>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-control">
+										<div class="swiper-fraction"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="h4">
+							<div class="subject">
+								<h4>fraction + operation</h4>
+							</div>
+							<div class="content">
+								<div class="ux-swiper banner-swiper q4">
+									<div class="swiper">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<a href="#"><img src="/assets/images/temp/slide_01.png" alt=""></a>
+											</div>
+											<div class="swiper-slide">
+												<a href="#"><img src="/assets/images/temp/slide_02.png" alt=""></a>
+											</div>
+											<div class="swiper-slide">
+												<a href="#"><img src="/assets/images/temp/slide_03.png" alt=""></a>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-control">
+										<div class="swiper-fraction"></div>
+										<div class="swiper-operation"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+			<section class="ux-section section-type-control">
+				<article class="ux-article">
+					<div class="ux-content">
+						<div class="h4">
+							<div class="content">
+								<div class="button-bar proc even">
+									<button type="button" class="ux-button level-1 contained dismiss" onclick="handleSwiper(swiper[0], 'prev');">
+										<span class="text">이전</span>
+									</button>
+									<button type="button" class="ux-button level-1 contained primary" onclick="handleSwiper(swiper[0], 'next');">
+										<span class="text">다음</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</main>
+	</div>
+</body>
+</html>
