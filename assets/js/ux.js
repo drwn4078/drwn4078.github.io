@@ -11,10 +11,6 @@ window[namespace] = window[namespace] || {};
 	ui.$window = $(window);
 	ui.$document = $(document);
 	ui.$html = $('html');
-	ui.state = {
-		initiated: 'ux-state-initiated',
-		disabled: 'ux-state-disabled',
-	};
 
 	// user agent detecti
 	const getBrowser = () => {
@@ -142,7 +138,8 @@ window[namespace] = window[namespace] || {};
 		};
 		const overrideOptions = () => {
 			const hasTitle = options.title ? 'popup-has-title' : '';
-			const caseClassName = `${baseClassName} popup-type-${options.type} ${hasTitle}`;
+			let caseClassName = `${baseClassName} popup-type-${options.type} ${hasTitle}`;
+			caseClassName += options.form ? ' form' : '';
 			options.dialogClass = caseClassName;
 			options.title && options.dialogClass;
 			switch (options.type) {
@@ -211,14 +208,10 @@ window[namespace] = window[namespace] || {};
 				async: false,
 				cache: false,
 				success: function (data, textStatus) {
-					let $responseContainer = $('<div></div>').html(data);
-					var container = $responseContainer.find('.ux-container').html();
-					const $container = $(container).wrapAll('<div class="ux-container"></div>').parent();
-
-					// var container = $responseContainer.find('.popup-content').html();
-					// const $container = $(container).wrapAll('<div></div>').parent();
-
-					// $popup = $('.ux-dialog-main', $dialog).html($container).dialog('open');
+					let $responseContainer = $('<div></div>').html(data).find('.ux-container');
+					const containerClass = $responseContainer.attr('class');
+					var container = $responseContainer.html();
+					const $container = $(container).wrapAll(`<div class="${containerClass}"></div>`).parent();
 					$popup = $dialog.html($container).dialog('open');
 				},
 				error: function (xhr, textStatus, errorThrown) {
@@ -337,11 +330,17 @@ window[namespace] = window[namespace] || {};
 		$('.ux-lottie').each((i, o) => {
 			$(o).uxLottie();
 		});
+		$('.ux-mask').each((i, o) => {
+			$(o).uxMask();
+		});
 		$('.ux-lrn').each((i, o) => {
 			$(o).uxRrn();
 		});
 		$('.ux-password').each((i, o) => {
 			$(o).uxPassword();
+		});
+		$('.ux-penny').each((i, o) => {
+			$(o).uxPenny();
 		});
 		$('.ux-phone').each((i, o) => {
 			$(o).uxPhone();
@@ -372,14 +371,15 @@ window[namespace] = window[namespace] || {};
 
 	$.fn.layoutObserver = function (options) {
 		const $layout = this;
+		const baseClassName = `layout-observer`;
+		const initClassName = `${baseClassName}-initiated`;
 		if ($layout.length < 1) return false;
-		const $el = $('<div />');
+		const $el = $('<div></div>');
 		const defaults = {
 			places: ['before', 'after'],
 		};
 		const settings = $.extend(true, defaults, options);
 		const classes = $layout.prop('class').split(' ');
-		const baseClassName = 'layout-observer';
 
 		const observerCallback = (entries) => {
 			let observerFor, observerClassName;
@@ -430,14 +430,16 @@ window[namespace] = window[namespace] || {};
 		const initiate = () => {
 			addObserver(settings);
 		};
-		$layout.parents('pre').length < 1 && !$layout.hasClass(ui.state.initiated) && initiate();
+		$layout.parents('pre').length < 1 && !$layout.hasClass(initClassName) && initiate();
 
 		return this.each((i, o) => {});
 	};
 
 	$.fn.uxAccordion = function (options) {
 		const $ux = this;
-		const $uxs = $('.ux-accordion');
+		const baseClassName = `ux-checkbox`;
+		const initClassName = `${baseClassName}-initiated`;
+		const $uxs = $(`.${baseClassName}`);
 		const $summary = $('> .accordion-summary', $ux);
 		const $toggle = $('> .toggle-accordion', $summary);
 		const key = $uxs.index($ux);
@@ -458,7 +460,7 @@ window[namespace] = window[namespace] || {};
 				sync();
 				if ($(this).is(':checked')) group($(this));
 			});
-			$ux.addClass(ui.state.initiated);
+			$ux.addClass(initClassName);
 		};
 		const sync = () => {
 			$ux.toggleClass('expanded', settings.expanded);
@@ -477,25 +479,29 @@ window[namespace] = window[namespace] || {};
 				});
 			}
 		};
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 		return this.each((i, o) => {});
 	};
 
 	$.fn.uxButton = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-button`;
+		const initClassName = `${baseClassName}-initiated`;
 		const defaults = {
 			type: 'button',
 		};
 		const settings = $.extend(true, defaults, options);
 
 		const initiate = () => {};
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 
 		return this.each((i, o) => {});
 	};
 
 	$.fn.uxCheckbox = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-checkbox`;
+		const initClassName = `${baseClassName}-initiated`;
 		const defaults = {
 			type: 'checkbox',
 		};
@@ -508,17 +514,19 @@ window[namespace] = window[namespace] || {};
 				state($(this));
 			});
 			state($input);
-			$ux.addClass(ui.state.initiated);
+			$ux.addClass(initClassName);
 		};
 		const state = (o) => {
 			$ux.toggleClass('checked', o.is(':checked'));
 		};
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 		return this.each((i, o) => {});
 	};
 
 	$.fn.uxDatepicker = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-datepicker`;
+		const initClassName = `${baseClassName}-initiated`;
 		const $input = $('input', $ux);
 		const $button = $('.button-input-calendar', $ux);
 		const defaults = {
@@ -626,15 +634,17 @@ window[namespace] = window[namespace] || {};
 				settings.selectedDate = dateText;
 				settings && settings.onselect && settings.onselect(dateText);
 			};
-			$ux.addClass(ui.state.initiated);
+			$ux.addClass(initClassName);
 		};
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 
 		return this.each((i, o) => {});
 	};
 
 	$.fn.uxField = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-field`;
+		const initClassName = `${baseClassName}-initiated`;
 		const defaults = {
 			standby: false,
 		};
@@ -665,15 +675,17 @@ window[namespace] = window[namespace] || {};
 			$inputs.off('focusin').on('focusin', function () {
 				$ux.addClass('standby');
 			});
-			$ux.addClass(ui.state.initiated);
+			$ux.addClass(initClassName);
 		};
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 
 		return this.each((i, o) => {});
 	};
 
 	$.fn.uxFile = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-file`;
+		const initClassName = `${baseClassName}-initiated`;
 		const $file = $('input[type="file"]', $ux);
 		const $text = $('input[type="text"]', $ux);
 		const $clear = $('.button-input-clear', $ux);
@@ -683,31 +695,35 @@ window[namespace] = window[namespace] || {};
 		const settings = $.extend(true, defaults, options);
 
 		const initiate = () => {
-			$file.off('change').on('change', function (event) {
-				$text.val(getFileName($file.val()));
-				checkValue();
-				settings && settings.onchange && settings.onchange(event);
-			});
-			$clear.off('click').on('click', function (event) {
-				$file.val('').trigger('change');
-				settings && settings.onchange && settings.onchange(event);
-			});
-			$ux.addClass(ui.state.initiated);
+			if ($ux.hasClass('ux-input')) {
+				$file.off('change').on('change', function (event) {
+					$text.val(getFileName($file.val()));
+					checkValue();
+					settings && settings.onchange && settings.onchange(event);
+				});
+				$clear.off('click').on('click', function (event) {
+					$file.val('').trigger('change');
+					settings && settings.onchange && settings.onchange(event);
+				});
+			}
+			$ux.addClass(initClassName);
 		};
 		const getFileName = (path) => {
 			return path.replace(/.*[\/\\]/, '');
 		};
 		const checkValue = () => {
-			$text.toggleClass('has-value', $text.val().length > 0);
+			if ($text.length > 0) $text.toggleClass('has-value', $text.parents('pre').length < 1 && $text.val().length > 0);
 		};
 		checkValue();
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 
 		return this.each((i, o) => {});
 	};
 
 	$.fn.uxInput = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-input`;
+		const initClassName = `${baseClassName}-initiated`;
 		const $inputs = $('button, input, textarea', $ux);
 		const defaults = {};
 		const settings = $.extend(true, defaults, options);
@@ -715,14 +731,17 @@ window[namespace] = window[namespace] || {};
 		const initiate = () => {
 			if ($ux.hasClass('readonly')) $inputs.prop('readonly', true);
 			if ($ux.hasClass('disabled')) $inputs.prop('disabled', true);
+			$ux.addClass(initClassName);
 		};
-		$ux.parents('pre').length < 1 && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 
 		return this.each((i, o) => {});
 	};
 
 	$.fn.uxLottie = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-lottie`;
+		const initClassName = `${baseClassName}-initiated`;
 		const defaults = {
 			url: '',
 		};
@@ -737,15 +756,45 @@ window[namespace] = window[namespace] || {};
 				loop: false,
 				autoplay: true,
 			});
-			$ux.addClass(ui.state.initiated);
+			$ux.addClass(initClassName);
 		};
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
+
+		return this.each((i, o) => {});
+	};
+
+	$.fn.uxMask = function (options) {
+		const $ux = this;
+		const baseClassName = `ux-mask`;
+		const initClassName = `${baseClassName}-initiated`;
+		const $input = $('input', $ux);
+		const $output = $('.output', $ux);
+		const $char = $('<span class="char"></span>');
+		const defaults = {};
+		const settings = $.extend(true, defaults, options);
+
+		const initiate = () => {
+			console.log('max', $input.attr('maxlength'));
+			for (let i = 0; i < $input.attr('maxlength'); i++) {
+				$char.clone().appendTo($output);
+			}
+			$input.on('input', function () {
+				$('.char', $output).removeClass('on');
+				for (let i = 0; i < $input.val().length; i++) {
+					$('.char', $output).eq(i).addClass('on');
+				}
+			});
+			$ux.addClass(initClassName);
+		};
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 
 		return this.each((i, o) => {});
 	};
 
 	$.fn.uxPassword = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-password`;
+		const initClassName = `${baseClassName}-initiated`;
 		const $input = $('input', $ux);
 		const $clear = $('.button-input-clear', $ux);
 		const defaults = {
@@ -764,33 +813,63 @@ window[namespace] = window[namespace] || {};
 				$input.val('').trigger('input');
 				settings && settings.oninput && settings.oninput(event);
 			});
-			$ux.addClass(ui.state.initiated);
+			$ux.addClass(initClassName);
 		};
 		const checkValue = () => {
-			$input.toggleClass('has-value', $input.val().length > 0);
+			$input.toggleClass('has-value', $input.parents('pre').length < 1 && $input.val().length > 0);
 		};
 		checkValue();
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
+
+		return this.each((i, o) => {});
+	};
+
+	$.fn.uxPenny = function (options) {
+		const $ux = this;
+		const baseClassName = `ux-penny`;
+		const initClassName = `${baseClassName}-initiated`;
+		const $input = $('input', $ux);
+		const $output = $('.output', $ux);
+		const defaults = {};
+		const settings = $.extend(true, defaults, options);
+
+		const initiate = () => {
+			$input.on('input', function () {
+				let value = $input.val();
+				let values = value.split('');
+				let html = '';
+				values.forEach((item) => {
+					html += `<span class="char">${item}</span>`;
+				});
+				$output.html(html);
+			});
+			$ux.addClass(initClassName);
+		};
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 
 		return this.each((i, o) => {});
 	};
 
 	$.fn.uxPhone = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-phone`;
+		const initClassName = `${baseClassName}-initiated`;
 		const $input = $('input', $ux);
 		const defaults = {};
 		const settings = $.extend(true, defaults, options);
 
 		const initiate = () => {
-			$ux.addClass(ui.state.initiated);
+			$ux.addClass(initClassName);
 		};
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 
 		return this.each((i, o) => {});
 	};
 
 	$.fn.uxRadio = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-radio`;
+		const initClassName = `${baseClassName}-initiated`;
 		const defaults = {
 			type: 'radio',
 			index: -1,
@@ -813,16 +892,16 @@ window[namespace] = window[namespace] || {};
 				settings && settings.onchange && settings.onchange(event);
 			});
 			state($input);
-			$ux.addClass(ui.state.initiated);
+			$ux.addClass(initClassName);
 		};
 		const update = () => {
-			$ux.removeClass(ui.state.initiated);
+			$ux.removeClass(initClassName);
 			initiate();
 		};
 		const state = (o) => {
 			$ux.toggleClass('checked', o.is(':checked'));
 		};
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 		if (options === 'update') update();
 
 		return this.each((i, o) => {});
@@ -830,6 +909,8 @@ window[namespace] = window[namespace] || {};
 
 	$.fn.uxRrn = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-rrn`;
+		const initClassName = `${baseClassName}-initiated`;
 		const $input = $('input', $ux);
 		const $clear = $('.button-input-clear', $ux);
 		const defaults = {};
@@ -839,15 +920,17 @@ window[namespace] = window[namespace] || {};
 			$clear.off('click').on('click', function (event) {
 				$input.val('').trigger('input');
 			});
-			$ux.addClass(ui.state.initiated);
+			$ux.addClass(initClassName);
 		};
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 
 		return this.each((i, o) => {});
 	};
 
 	$.fn.uxSelect = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-select`;
+		const initClassName = `${baseClassName}-initiated`;
 		const $button = $('.select-button', $ux);
 		const $dropdown = $('.select-dropdown', $ux);
 		const $options = $('> ul', $dropdown);
@@ -899,12 +982,12 @@ window[namespace] = window[namespace] || {};
 			const index = $option.index($option.filter('.selected'));
 			select(index);
 			unselect(index);
-			$ux.addClass(ui.state.initiated);
+			$ux.addClass(initClassName);
 		};
 		const update = () => {
 			$options.removeClass('select-options');
 			$option.removeClass('select-option');
-			$ux.removeClass(ui.state.initiated);
+			$ux.removeClass(initClassName);
 			initiate();
 		};
 		const select = (index) => {
@@ -926,7 +1009,7 @@ window[namespace] = window[namespace] || {};
 		const onDropdownClose = () => {
 			$ux.removeClass(settings.openedClass);
 		};
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 		if (options === 'update') update();
 
 		return this.each((i, o) => {});
@@ -934,6 +1017,8 @@ window[namespace] = window[namespace] || {};
 
 	$.fn.uxSwiper = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-swiper`;
+		const initClassName = `${baseClassName}-initiated`;
 		const $control = $('.swiper-control', $ux);
 		const $pagination = $('.swiper-pagination', $ux);
 		const $fraction = $('.swiper-fraction', $ux);
@@ -977,17 +1062,19 @@ window[namespace] = window[namespace] || {};
 				$ux.toggleClass('running', swiper.autoplay.running);
 			};
 			pp();
-			$ux.addClass(ui.state.initiated);
+			$ux.addClass(initClassName);
 		};
 
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 
 		return swiper;
 	};
 
 	$.fn.uxTab = function (options) {
 		const $ux = this;
-		const $uxs = $('.ux-tab');
+		const baseClassName = `ux-tab`;
+		const initClassName = `${baseClassName}-initiated`;
+		const $uxs = $(`.${baseClassName}`);
 		const $subject = $('.tab-subject', $ux);
 		const $content = $('.tab-content', $ux);
 		const defaults = {
@@ -1026,6 +1113,10 @@ window[namespace] = window[namespace] || {};
 			});
 			const $blob = $('<span class="blob"></span>');
 			$blob.appendTo($('.tab-subjects', $ux));
+			const maxWidth = 100 / $subject.length + '%';
+			$blob.css({
+				maxWidth: maxWidth,
+			});
 			const sync = () => {
 				$subject.each((i, o) => {
 					$(o).toggleClass('selected', i === settings.selected);
@@ -1034,8 +1125,7 @@ window[namespace] = window[namespace] || {};
 					$(o).toggleClass('selected', i === settings.selected);
 				});
 			};
-			const blob = async () => {
-				await UX.sleep(100);
+			const blob = () => {
 				let left = Math.round($subject.eq(settings.selected).position().left);
 				let width = $subject.eq(settings.selected).css('width');
 				$blob.css({
@@ -1044,17 +1134,21 @@ window[namespace] = window[namespace] || {};
 				});
 			};
 			sync();
-			blob();
-			$ux.addClass(ui.state.initiated);
+			$(window).on('load', function () {
+				blob();
+			});
+			$ux.addClass(initClassName);
 		};
 
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 
 		return this.each((i, o) => {});
 	};
 
 	$.fn.uxTextfield = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-textfield`;
+		const initClassName = `${baseClassName}-initiated`;
 		const $input = $('input', $ux);
 		const $clear = $('.button-input-clear', $ux);
 		const defaults = {
@@ -1071,19 +1165,21 @@ window[namespace] = window[namespace] || {};
 				$input.val('');
 				settings && settings.oninput && settings.oninput(event);
 			});
-			$ux.addClass(ui.state.initiated);
+			$ux.addClass(initClassName);
 		};
 		const checkValue = () => {
-			$input.toggleClass('has-value', $input.val().length > 0);
+			$input.toggleClass('has-value', $input.parents('pre').length < 1 && $input.val().length > 0);
 		};
 		checkValue();
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 
 		return this.each((i, o) => {});
 	};
 
 	$.fn.uxTextarea = function (options) {
 		const $ux = this;
+		const baseClassName = `ux-textarea`;
+		const initClassName = `${baseClassName}-initiated`;
 		const $textarea = $('textarea', $ux);
 		const defaults = {
 			oninput: this[0].oninput,
@@ -1095,13 +1191,13 @@ window[namespace] = window[namespace] || {};
 				checkValue();
 				settings && settings.oninput && settings.oninput(event);
 			});
-			$ux.addClass(ui.state.initiated);
+			$ux.addClass(initClassName);
 		};
 		const checkValue = () => {
-			$input.toggleClass('has-value', $input.val().length > 0);
+			$input.toggleClass('has-value', $input.parents('pre').length < 1 && $input.val().length > 0);
 		};
 		checkValue();
-		$ux.parents('pre').length < 1 && !$ux.hasClass(ui.state.initiated) && initiate();
+		$ux.parents('pre').length < 1 && !$ux.hasClass(initClassName) && initiate();
 
 		return this.each((i, o) => {});
 	};
@@ -1113,18 +1209,4 @@ window[namespace] = window[namespace] || {};
 $(function () {
 	UX.header();
 	UX.initiate();
-
-	// const selectmenuOptions = {
-	// 	delay: 0,
-	// 	position: {
-	// 		my: 'center bottom',
-	// 		at: 'center bottom',
-	// 		of: window,
-	// 	},
-	// 	show: { effect: 'slide', duration: 250, direction: 'down' },
-	// 	hide: { effect: 'slide', duration: 250, direction: 'down' },
-	// };
-	// $('.selectmenu').each((i, o) => {
-	// 	$(o).selectmenu(selectmenuOptions);
-	// });
 });

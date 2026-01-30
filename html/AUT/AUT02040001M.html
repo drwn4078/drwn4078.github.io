@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="/assets/js/ux.js"></script>
 </head>
 
-<body class="bg">
+<body class="form">
 	<div class="ux-container">
 		<header class="ux-header">
 			<section class="ux-section section-type-content">
@@ -49,9 +49,9 @@
 			<section class="ux-section section-type-content">
 				<article class="ux-article">
 					<div class="ux-subject">
-						<h3>공동인증서를<br> PC → 스마트기기로 가져올게요</h3>
+						<h3>공동인증서를<br> 스마트기기 → PC로 보낼게요</h3>
 						<div class="desc">
-							<p>인증번호를 PC 인터넷뱅킹에 입력 후, 아래 [PC → 스마트기기 가져오기] 버튼을 눌러주세요.</p>
+							<p>PC 인터넷뱅킹의 인증번호 12자리를 입력 후, 아래 [스마트기기 → PC 보내기] 버튼을 눌러주세요.</p>
 						</div>
 					</div>
 					<div class="ux-content">
@@ -63,9 +63,11 @@
 											<label class="name">인증번호</label><label class="text">를 입력하세요</label>
 										</div>
 										<div class="input">
-											<div class="ux-input ux-textfield">
-												<input type="text" placeholder="인증번호를 입력하세요">
-												<button type="button" class="ux-button button-input-clear standoff"><span class="icon"></span><span class="text">삭제</span></button>
+											<div class="ux-input ux-textfield readonly">
+												<input type="text" placeholder="인증번호를 입력하세요" value="1234-1234-1234">
+												<div class="standoff">
+													<button type="button" class="ux-button button-input-clear"><span class="icon"></span><span class="text">삭제</span></button>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -90,16 +92,16 @@
 										<p><span class="ux-button level-4 outlined"><span class="text">[인증서 가져오기]</span></span> 버튼 선택</p>
 									</li>
 									<li>
-										<p>인증번호 생성</p>
-									</li>
-									<li>
 										<p>앱 실행 및 <strong>[인증센터 안내 > 스마트인증서 복사]</strong> 메뉴 선택</p>
 									</li>
 									<li>
-										<p><span class="ux-button level-4 outlined"><span class="text">[PC → 스마트기기 보내기]</span></span> 버튼 선택</p>
+										<p><span class="ux-button level-4 outlined"><span class="text">[스마트기기 → PC 인증서 복사]</span></span> 버튼 선택</p>
 									</li>
 									<li>
-										<p>스마트기기에서 생성된 인증번호를 PC에 입력 후 <span class="ux-button level-4 outlined"><span class="text">[인증서 내보내기]</span></span> 버튼 선택</p>
+										<p>앱에서 생성된 인증번호 입력 후 <span class="ux-button level-4 outlined"><span class="text">[인증서 가져오기]</span></span> 버튼 선택</p>
+									</li>
+									<li>
+										<p>PC화면에서 인증서 저장 위치 선택</p>
 									</li>
 									<li>
 										<p>인증서 복사 완료</p>
@@ -117,7 +119,7 @@
 							<div class="content">
 								<div class="button-bar proc">
 									<button type="button" class="ux-button level-1 contained primary gradient">
-										<span class="text">PC → 스마트기기 가져오기</span>
+										<span class="text">스마트기기 → PC 내보내기</span>
 									</button>
 								</div>
 							</div>

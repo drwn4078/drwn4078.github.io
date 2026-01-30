@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 
 <head>
@@ -14,19 +14,9 @@
 	<script type="text/javascript" src="/assets/lib/jquery/jquery-ui-1.12.1.min.js"></script>
 	<script type="text/javascript" src="/assets/lib/swiper/swiper-bundle.min.js"></script>
 	<script type="text/javascript" src="/assets/js/ux.js"></script>
-	<script type="text/javascript">
-		let $popup;
-		const handlePopup = () => {
-			$popup = UX.popup({
-				title: '인증서 선택',
-				position: 'bottom',
-				src: '/html/COM/COM04010003P.html',
-			});
-		};
-	</script>
 </head>
 
-<body>
+<body class="form">
 	<div class="ux-container">
 		<header class="ux-header">
 			<section class="ux-section section-type-content">
@@ -59,39 +49,306 @@
 			<section class="ux-section section-type-content">
 				<article class="ux-article">
 					<div class="ux-subject">
-						<h3>계약체결을 위해<br> 전자서명을 진행할게요</h3>
-						<div class="desc">
-							<p>전자서명 방법을 선택해주세요.</p>
-						</div>
+						<div class="stepper"><span class="current">1</span><span class="slash">/</span><span class="total">3</span></div>
+						<h3>입출금통장 계좌개설을 위해<br> 상품설명서 및 약관에<br> 동의해주세요</h3>
 					</div>
 					<div class="ux-content">
 						<div class="h4">
 							<div class="content">
-								<div class="grid col-3">
-									<label class="ux-radio custom">
-										<input type="radio" name="radio_group_02">
-										<div class="face">
-											<span class="media cert01"></span>
-											<span class="text">민간인증서</span>
-											<span class="icon"></span>
+								<div class="terms-group">
+									<div class="terms-box">
+										<div class="terms level-4">
+											<label class="ux-checkbox">
+												<input type="checkbox">
+												<div class="face">
+													<span class="icon"></span>
+													<span class="text">DB저축은행 비대면 입출금통장 상품설명서</span>
+												</div>
+											</label>
 										</div>
-									</label>
-									<label class="ux-radio custom">
-										<input type="radio" name="radio_group_02">
-										<div class="face">
-											<span class="media cert02"></span>
-											<span class="text">금융인증서</span>
-											<span class="icon"></span>
+									</div>
+									<div class="terms-box">
+										<div class="ux-accordion expanded">
+											<div class="accordion-summary">
+												<div class="terms level-4">
+													<label class="ux-checkbox">
+														<input type="checkbox">
+														<div class="face">
+															<span class="icon"></span>
+															<span class="text">필수약관 모두 동의</span>
+														</div>
+													</label>
+												</div>
+												<label class="label-accordion-toggle toggle-accordion">
+													<span class="icon"></span>
+													<span class="text"></span>
+												</label>
+											</div>
+											<div class="accordion-details">
+												<div class="accordion-content">
+													<div class="terms-group">
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">[필수]개인정보 수집·이용 동의서 (본인 확인 서비스)</span>
+																</div>
+															</label>
+															<button type="button" class="ux-button button-terms">
+																<span class="icon"></span>
+																<span class="text">약관보기</span>
+															</button>
+														</div>
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">[필수]고유식별정보 처리 동의서 (본인 확인 서비스)</span>
+																</div>
+															</label>
+															<button type="button" class="ux-button button-terms">
+																<span class="icon"></span>
+																<span class="text">약관보기</span>
+															</button>
+														</div>
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">[필수]전자금융서비스 이용약관</span>
+																</div>
+															</label>
+															<button type="button" class="ux-button button-terms">
+																<span class="icon"></span>
+																<span class="text">약관보기</span>
+															</button>
+														</div>
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">[필수]예금거래 기본약관</span>
+																</div>
+															</label>
+															<button type="button" class="ux-button button-terms">
+																<span class="icon"></span>
+																<span class="text">약관보기</span>
+															</button>
+														</div>
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">[필수]입출금이 자유로운 예금약관</span>
+																</div>
+															</label>
+															<button type="button" class="ux-button button-terms">
+																<span class="icon"></span>
+																<span class="text">약관보기</span>
+															</button>
+														</div>
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">[필수]개인(신용)정보 수집·이용 동의서(비여신 금융거래)</span>
+																</div>
+															</label>
+															<button type="button" class="ux-button button-terms">
+																<span class="icon"></span>
+																<span class="text">약관보기</span>
+															</button>
+														</div>
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">[필수]비대면 계좌개설 안심차단 등록 여부 조회용 개인(신용)정보 동의서</span>
+																</div>
+															</label>
+															<button type="button" class="ux-button button-terms">
+																<span class="icon"></span>
+																<span class="text">약관보기</span>
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
-									</label>
-									<label class="ux-radio custom">
-										<input type="radio" name="radio_group_02">
-										<div class="face">
-											<span class="media cert03"></span>
-											<span class="text">공동인증서</span>
-											<span class="icon"></span>
+									</div>
+									<div class="terms-box">
+										<div class="ux-accordion expanded">
+											<div class="accordion-summary">
+												<div class="terms level-4">
+													<label class="ux-checkbox">
+														<input type="checkbox">
+														<div class="face">
+															<span class="icon"></span>
+															<span class="text">선택약관 모두 동의</span>
+														</div>
+													</label>
+												</div>
+												<label class="label-accordion-toggle toggle-accordion">
+													<span class="icon"></span>
+													<span class="text"></span>
+												</label>
+											</div>
+											<div class="accordion-details">
+												<div class="accordion-content">
+													<div class="terms-group">
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">[선택]개인(신용)정보 수집·이용 동의서(상품서비스 안내 등)</span>
+																</div>
+															</label>
+															<button type="button" class="ux-button button-terms">
+																<span class="icon"></span>
+																<span class="text">약관보기</span>
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
-									</label>
+									</div>
+									<div class="terms-box">
+										<div class="ux-accordion expanded">
+											<div class="accordion-summary">
+												<div class="terms level-4">
+													<label class="ux-checkbox">
+														<input type="checkbox">
+														<div class="face">
+															<span class="icon"></span>
+															<span class="text">확인사항 모두 동의</span>
+														</div>
+													</label>
+												</div>
+												<label class="label-accordion-toggle toggle-accordion">
+													<span class="icon"></span>
+													<span class="text"></span>
+												</label>
+											</div>
+											<div class="accordion-details">
+												<div class="accordion-content">
+													<div class="terms-group">
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">차명거래 금지 확인서</span>
+																</div>
+															</label>
+															<button type="button" class="ux-button button-terms">
+																<span class="icon"></span>
+																<span class="text">약관보기</span>
+															</button>
+														</div>
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">통장 양도 불법성 안내 확인서</span>
+																</div>
+															</label>
+															<button type="button" class="ux-button button-terms">
+																<span class="icon"></span>
+																<span class="text">약관보기</span>
+															</button>
+														</div>
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">예금자보호법 안내 확인서</span>
+																</div>
+															</label>
+															<button type="button" class="ux-button button-terms">
+																<span class="icon"></span>
+																<span class="text">약관보기</span>
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="terms-box">
+										<div class="ux-accordion expanded">
+											<div class="accordion-summary">
+												<div class="terms level-4">
+													<label class="ux-checkbox">
+														<input type="checkbox">
+														<div class="face">
+															<span class="icon"></span>
+															<span class="text">마케팅 수신 동의</span>
+														</div>
+													</label>
+												</div>
+												<label class="label-accordion-toggle toggle-accordion">
+													<span class="icon"></span>
+													<span class="text"></span>
+												</label>
+											</div>
+											<div class="accordion-details">
+												<div class="accordion-content">
+													<div class="terms-group grid col-2">
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">문자</span>
+																</div>
+															</label>
+														</div>
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">전화</span>
+																</div>
+															</label>
+														</div>
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">이메일</span>
+																</div>
+															</label>
+														</div>
+														<div class="terms level-5">
+															<label class="ux-checkbox">
+																<input type="checkbox">
+																<div class="face">
+																	<span class="icon"></span>
+																	<span class="text">우편</span>
+																</div>
+															</label>
+														</div>
+													</div>
+													<div class="desc">
+														<p class="bl-middot">마케팅 수신에 동의할 경우 금융상품 계약정보도 함께 수신돼요. (금융상품 계약정보 : 자동이체, 만기정보, 대출정보)</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -104,8 +361,8 @@
 						<div class="h4">
 							<div class="content">
 								<div class="button-bar proc">
-									<button type="button" class="ux-button level-1 contained primary gradient" onclick="handlePopup();">
-										<span class="text">전자서명하기</span>
+									<button type="button" class="ux-button level-1 contained primary gradient" disabled>
+										<span class="text">확인</span>
 									</button>
 								</div>
 							</div>

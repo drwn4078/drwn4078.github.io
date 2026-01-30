@@ -59,12 +59,16 @@
 						</label>
 					</div>
 					<div class="code-viewer-details">
-<pre>
+						<pre>
 <code class="language-markup">
-<div class="ux-input ux-textfield">
-	<input type="text" placeholder="아이디를 입력하세요" value="dbsb0123">
-	<button type="button" class="ux-button button-input-clear standoff"><span class="icon"></span><span class="text">삭제</span></button>
-</div>
+<label class="ux-input ux-file">
+	<input type="file">
+	<input type="text" placeholder="첨부파일을 선택하세요"></inputspan>
+	<div class="standoff">
+		<button type="button" class="ux-button button-input-clear"><span class="icon"></span><span class="text">삭제</span></button>
+		<button type="button" class="button-file-search"><span class="icon"></span><span class="text">파일검색</span></button>
+	</div>
+</label>
 </code>
 </pre>
 					</div>
@@ -74,6 +78,9 @@
 				<article class="ux-article">
 					<div class="ux-content">
 						<div class="h4">
+							<div class="subject">
+								<h4>필드형</h4>
+							</div>
 							<div class="content">
 								<div class="ux-form">
 									<div class="ux-field stand">
@@ -86,8 +93,8 @@
 												<input type="text" placeholder="첨부파일을 선택하세요"></inputspan>
 												<div class="standoff">
 													<button type="button" class="ux-button button-input-clear"><span class="icon"></span><span class="text">삭제</span></button>
+													<button type="button" class="button-file-search"><span class="icon"></span><span class="text">파일검색</span></button>
 												</div>
-												<button type="button" class="button-file-search standoff"><span class="icon"></span><span class="text">파일검색</span></button>
 											</label>
 										</div>
 										<div class="recap">
@@ -99,10 +106,48 @@
 								</div>
 							</div>
 						</div>
+						<div class="h4">
+							<div class="subject">
+								<h4>버튼형</h4>
+							</div>
+							<div class="content">
+								<div class="button-bar">
+									<label type="button" class="ux-button ux-file level-3 contained p100">
+										<input type="file">
+										<span class="text">파일 첨부</span>
+									</label>
+								</div>
+								<div class="file-thumb-group">
+									<div class="file-thumb">
+										<figure>
+											<img src="/assets/images/temp/doc.png" alt="첨부이미지예시">
+										</figure>
+										<button type="button" class="ux-button button-thumb-delete">
+											<span class="icon"></span>
+											<span class="text"></span>
+										</button>
+									</div>
+									<div class="file-thumb">
+										<button type="button" class="ux-button button-thumb-delete">
+											<span class="icon"></span>
+											<span class="text"></span>
+										</button>
+									</div>
+									<div class="file-thumb">
+										<div class="overlay"></div>
+										<button type="button" class="ux-button button-thumb-delete">
+											<span class="icon"></span>
+											<span class="text"></span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</article>
 			</section>
 		</main>
 	</div>
 </body>
+
 </html>

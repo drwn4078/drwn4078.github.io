@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="/assets/js/ux.js"></script>
 </head>
 
-<body class="bg">
+<body>
 	<div class="ux-container">
 		<header class="ux-header">
 			<section class="ux-section section-type-content">
@@ -49,82 +49,54 @@
 			<section class="ux-section section-type-content">
 				<article class="ux-article">
 					<div class="ux-subject">
-						<!-- TODO: Step -->
-						<h3>본인확인 정보를<br> 입력해주세요</h3>
-						<div class="desc">
-							<p>다른은행이나 기관에서 발급받은 공동인증서를 DB저축은행에 등록하여 이용하실 수 있습니다.</p>
-						</div>
+						<div class="stepper"><span class="current">2</span><span class="slash">/</span><span class="total">3</span></div>
+						<h3>등록/해지할<br> 타기관 공동인증서를<br> 선택하세요</h3>
 					</div>
 					<div class="ux-content">
 						<div class="h4">
 							<div class="content">
-								<div class="ux-form">
-									<div class="ux-field">
-										<div class="label">
-											<label class="name">타기관인증서</label>
-										</div>
-										<div class="input">
-											<div class="ux-radio-group toggle-group">
-												<label class="ux-radio">
-													<input type="radio" name="radio_group_04" checked>
-													<div class="face">
-														<span class="text">타기관인증서 등록</span>
-													</div>
-												</label>
-												<label class="ux-radio">
-													<input type="radio" name="radio_group_04">
-													<div class="face">
-														<span class="text">타기관인증서 해지</span>
-													</div>
-												</label>
-											</div>
-										</div>
-									</div>
-									<div class="ux-field stand">
-										<div class="label">
-											<label class="name">인터넷뱅킹 아이디</label><label class="text">를 입력하세요</label>
-										</div>
-										<div class="input">
-											<div class="ux-input ux-textfield">
-												<input type="text" placeholder="인터넷뱅킹 아이디를 입력하세요">
-												<button type="button" class="ux-button button-input-clear standoff"><span class="icon"></span><span class="text">삭제</span></button>
-											</div>
-										</div>
-									</div>
-									<div class="ux-field stand">
-										<div class="label">
-											<label class="name">주민등록번호</label><label class="text">를 입력하세요</label>
-										</div>
-										<div class="input">
-											<div class="ux-input ux-rrn">
-												<div class="ux-textfield rrn-6">
-													<input type="text" maxlength="6" placeholder="앞자리">
+								<div class="grid col-1 gap-16">
+									<button type="button" class="ux-button">
+										<dl class="cert">
+											<dt>
+												<span class="icon"></span>
+											</dt>
+											<dd>
+												<span class="name">김동부(000000)</span>
+												<div class="info">
+													<span class="spec">은행(개인) 금융결제원</span>
+													<span class="date">만료일 YYYY.MM.DD</span>
 												</div>
-												<span class="separator"></span>
-												<div class="ux-textfield disc rrn-1">
-													<input type="text" maxlength="1" placeholder="*">
+											</dd>
+										</dl>
+									</button>
+									<button type="button" class="ux-button">
+										<dl class="cert">
+											<dt>
+												<span class="icon"></span>
+											</dt>
+											<dd>
+												<span class="name">김동부(000000)</span>
+												<div class="info">
+													<span class="spec">은행(개인) 금융결제원</span>
+													<span class="date">만료일 YYYY.MM.DD</span>
 												</div>
-												<div class="ux-password rrn-7">
-													<input type="password" maxlength="6" placeholder="뒷자리">
+											</dd>
+										</dl>
+									</button>
+									<button type="button" class="ux-button">
+										<dl class="cert">
+											<dt>
+												<span class="icon"></span>
+											</dt>
+											<dd>
+												<span class="name">김동부(000000)</span>
+												<div class="info">
+													<span class="spec">은행(개인) 금융결제원</span>
+													<span class="date">만료일 YYYY.MM.DD</span>
 												</div>
-												<button type="button" class="ux-button button-input-clear standoff"><span class="icon"></span><span class="text">삭제</span></button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</article>
-			</section>
-			<section class="ux-section section-type-control">
-				<article class="ux-article">
-					<div class="ux-content">
-						<div class="h4">
-							<div class="content">
-								<div class="button-bar proc">
-									<button type="button" class="ux-button level-1 contained primary gradient">
-										<span class="text">다음</span>
+											</dd>
+										</dl>
 									</button>
 								</div>
 							</div>

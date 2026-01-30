@@ -20,7 +20,7 @@
 	<script type="text/javascript" src="/assets/js/guide.js"></script>
 </head>
 
-<body>
+<body class="form">
 	<div class="ux-container">
 		<header class="ux-header">
 			<section class="ux-section section-type-content">
@@ -60,11 +60,13 @@
 						</label>
 					</div>
 					<div class="code-viewer-details">
-<pre>
+						<pre>
 <code class="language-markup">
 <div class="ux-input ux-textfield">
 	<input type="text" placeholder="아이디를 입력하세요" value="dbsb0123">
-	<button type="button" class="ux-button button-input-clear standoff"><span class="icon"></span><span class="text">삭제</span></button>
+	<div class="standoff">
+		<button type="button" class="ux-button button-input-clear"><span class="icon"></span><span class="text">삭제</span></button>
+	</div>
 </div>
 </code>
 </pre>
@@ -217,8 +219,8 @@
 												<input type="text" placeholder="금액을 입력하세요" value="1,000,000">
 												<div class="standoff">
 													<button type="button" class="ux-button button-input-clear"><span class="icon"></span><span class="text">삭제</span></button>
+													<span class="suffix">원</span>
 												</div>
-												<span class="suffix standoff">원</span>
 											</div>
 										</div>
 										<div class="recap">
@@ -253,8 +255,8 @@
 											<label class="name">주소</label><label class="text">를 검색하세요</label>
 										</div>
 										<div class="input">
-											<div class="ux-input ux-textfield">
-												<input type="text" placeholder="주소를 검색하세요">
+											<div class="ux-input ux-textarea">
+												<textarea placeholder="주소를 검색하세요"></textarea>
 												<button type="button" class="ux-button button-input-search cover"><span class="icon"></span><span class="text">검색</span></button>
 											</div>
 										</div>
@@ -282,4 +284,5 @@
 		</main>
 	</div>
 </body>
+
 </html>

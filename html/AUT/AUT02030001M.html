@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="/assets/js/ux.js"></script>
 </head>
 
-<body class="bg">
+<body class="form">
 	<div class="ux-container">
 		<header class="ux-header">
 			<section class="ux-section section-type-content">
@@ -49,8 +49,8 @@
 			<section class="ux-section section-type-content">
 				<article class="ux-article">
 					<div class="ux-subject">
-						<!-- TODO: Step -->
-						<h3>본인확인 정보를<br> 입력해주세요</h3>
+						<div class="stepper"><span class="current">3</span><span class="slash">/</span><span class="total">4</span></div>
+						<h3>공동인증서 발급 정보를<br> 입력해주세요</h3>
 					</div>
 					<div class="ux-content">
 						<div class="h4">
@@ -58,57 +58,65 @@
 								<div class="ux-form">
 									<div class="ux-field stand">
 										<div class="label">
-											<label class="name">인터넷뱅킹 아이디</label><label class="text">를 입력하세요</label>
+											<label class="name">출금계좌</label><label class="text">를 선택하세요</label>
 										</div>
 										<div class="input">
-											<div class="ux-input ux-textfield">
-												<input type="text" placeholder="인터넷뱅킹 아이디를 입력하세요">
-												<button type="button" class="ux-button button-input-clear standoff"><span class="icon"></span><span class="text">삭제</span></button>
+											<div class="ux-input ux-select" placeholder="출금계좌를 선택하세요">
+												<button type="button" class="select-button">
+													<span class="text"></span>
+													<span class="icon"></span>
+												</button>
+												<div class="select-dropdown">
+													<ul>
+														<li>
+															<dl class="bank-account">
+																<dt><span class="icon sb-007"></span></dt>
+																<dd>
+																	<span class="name">M-DreamBig 정기예금</span>
+																	<span class="spec">123-45-678-901234</span>
+																	<span class="mass">출금가능금액 1,000,000원</span>
+																</dd>
+															</dl>
+														</li>
+														<li>
+															<dl class="bank-account">
+																<dt><span class="icon sb-002"></span></dt>
+																<dd>
+																	<span class="name">M-DreamBig 정기예금(6M)</span>
+																	<span class="spec">123-45-678-901234</span>
+																	<span class="mass">출금가능금액 1,000,000원</span>
+																</dd>
+															</dl>
+														</li>
+														<li>
+															<dl class="bank-account">
+																<dt><span class="icon sb-003"></span></dt>
+																<dd>
+																	<span class="name">M-정기예금</span>
+																	<span class="spec">123-45-678-901234</span>
+																	<span class="mass">출금가능금액 1,000,000원</span>
+																</dd>
+															</dl>
+														</li>
+													</ul>
+												</div>
 											</div>
 										</div>
 									</div>
 									<div class="ux-field stand">
 										<div class="label">
-											<label class="name">주민등록번호</label><label class="text">를 입력하세요</label>
+											<label class="name">계좌비밀번호</label><label class="text">를 입력하세요</label>
 										</div>
 										<div class="input">
-											<div class="ux-input ux-rrn">
-												<div class="ux-textfield rrn-6">
-													<input type="text" maxlength="6" placeholder="앞자리">
+											<div class="ux-input ux-password">
+												<input type="password" placeholder="계좌비밀번호를 입력하세요">
+												<div class="standoff">
+													<button type="button" class="ux-button button-input-clear"><span class="icon"></span><span class="text">삭제</span></button>
 												</div>
-												<span class="separator"></span>
-												<div class="ux-textfield disc rrn-1">
-													<input type="text" maxlength="1" placeholder="*">
-												</div>
-												<div class="ux-password rrn-7">
-													<input type="password" maxlength="6" placeholder="뒷자리">
-												</div>
-												<button type="button" class="ux-button button-input-clear standoff"><span class="icon"></span><span class="text">삭제</span></button>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-					</div>
-					<hr>
-					<div class="ux-content">
-						<div class="h4 information">
-							<div class="subject">
-								<h4>
-									<span class="icon info"></span>
-									<span class="text">확인해주세요</span>
-								</h4>
-							</div>
-							<div class="content">
-								<ul class="grid col-1 gap-8">
-									<li>
-										<p class="bl-middot">유효기간 만료 30일전부터 유효기간까지 발급받은 공동인증서를 연장하실 수 있습니다. 유효기간 만료 후에는 공동인증서 발급(재발급)에서 신규발급을 하셔야 합니다.</p>
-									</li>
-									<li>
-										<p class="bl-middot">갱신된 공동인증서를 타기관에서 이용시 해당 기관에 재등록을 하셔야 합니다.</p>
-									</li>
-								</ul>
 							</div>
 						</div>
 					</div>
